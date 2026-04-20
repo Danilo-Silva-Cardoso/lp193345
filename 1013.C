@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Danilo Da Silva Cardoso
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1013
+Data        : 02/04/2026
+Objetivo    : Descobrir qual é o maior número entre 3 valores
+Aprendizado : utilizar a fórmula para descobrir o maior
+-------------------------------------------------------------------------- */
+
 #include <stdio.h>
 
 int main()
