@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Danilo Da Silva Cardoso
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1071
+Data        : 16/04/2026
+Objetivo    : Calcular a soma dos números ímpares entre dois valores inteiros
+Aprendizado : Uso de estruturas condicionais (if/else), laço de repetição (for) e operador de resto (%) para identificar números ímpares
+-------------------------------------------------------------------------- */
+
 #include <stdio.h>
  
 int main() {
