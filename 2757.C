@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Lógica de Programação, turma IB, 2026S1
+Nome        : Danilo Da Silva Cardoso
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/2757
+Data        : 07/04/2026
+Objetivo    : Ler três valores inteiros e exibi-los em diferentes formatos de saída formatada
+Aprendizado : Uso de entrada de dados (scanf), saída formatada (printf) com especificadores de largura, preenchimento com zeros e alinhamento, além de validação de intervalos com operadores lógicos
+-------------------------------------------------------------------------- */
+
 #include <stdio.h>
  
 int main() {
