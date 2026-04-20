@@ -4,8 +4,8 @@ Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/2757
 Data        : 13/04/2026
-Objetivo    : Ler três valores inteiros e exibi-los em diferentes formatos de saída formatada
-Aprendizado : Uso de entrada de dados (scanf), saída formatada (printf) com especificadores de largura, preenchimento com zeros e alinhamento, além de validação de intervalos com operadores lógicos
+Objetivo    : Ler valores reais e exibi-los em diferentes formatos de saída utilizando especificadores de formatação
+Aprendizado : Uso de laço de repetição com scanf, manipulação de tipos float e double, e aplicação de formatação no printf (casas decimais, notação científica e arredondamento)
 -------------------------------------------------------------------------- */
 
 #include <stdio.h>
