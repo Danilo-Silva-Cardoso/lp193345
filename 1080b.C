@@ -11,16 +11,19 @@ Aprendizado : Uso de vetores, laço de repetição (for), estrutura condicional 
 #include <stdio.h>
 
 int main() {
-    int valor, maior, posicao = 1;
+    int vetor[100];
+    int maior, posicao = 1;
 
-    scanf("%d", &maior);
+    for (int i = 0; i < 100; i++) {
+        scanf("%d", &vetor[i]);
+    }
 
-    for (int i = 2; i <= 100; i++) {
-        scanf("%d", &valor);
+    maior = vetor[0];
 
-        if (valor > maior) {
-            maior = valor;
-            posicao = i;
+    for (int i = 1; i < 100; i++) {
+        if (vetor[i] > maior) {
+            maior = vetor[i];
+            posicao = i + 1; // +1 porque a posição começa em 1
         }
     }
 
