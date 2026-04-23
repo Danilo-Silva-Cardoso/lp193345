@@ -23,7 +23,7 @@ int main() {
     for (int i = 1; i < 100; i++) {
         if (vetor[i] > maior) {
             maior = vetor[i];
-            posicao = i + 1; // +1 porque a posição começa em 1
+            posicao = i + 1; 
         }
     }
 
