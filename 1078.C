@@ -14,13 +14,13 @@ int main() {
     int valorfixo,valor,i;
     
     scanf("%d", &valorfixo) ;
-        if (2<valorfixo && valorfixo <1000) {
+    if (2<valorfixo && valorfixo <1000) {
             
-            for(i=1;i<=10;i++) {
+        for(i=1;i<=10;i++) {
              
-                valor=valorfixo*i;
-                printf("%d x %d = %d\n", i, valorfixo, valor);
-            
+            valor=valorfixo*i;
+            printf("%d x %d = %d\n", i, valorfixo, valor);
+          
             }
         }
     return 0;
