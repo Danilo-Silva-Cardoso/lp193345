@@ -2,7 +2,7 @@
 Disciplina  : Lógica de Programação, turma IB, 2026S1
 Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
-Problema    : https://judge.beecrowd.com/pt/problems/view/2757
+Problema    : https://judge.beecrowd.com/pt/problems/view/2758
 Data        : 13/04/2026
 Objetivo    : Ler valores reais e exibi-los em diferentes formatos de saída utilizando especificadores de formatação
 Aprendizado : Uso de laço de repetição com scanf, manipulação de tipos float e double, e aplicação de formatação no printf (casas decimais, notação científica e arredondamento)
