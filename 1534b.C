@@ -3,7 +3,7 @@ Disciplina  : Lógica de Programação, turma IB, 2026S1
 Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1534
-Data        : 13/05/2026
+Data        : 14/05/2026
 Objetivo    : Matriz 123 usando operadores
 Aprendizado : Aprender manipulação de memória e aritmética de ponteiros em C sem utilizar o operador [].
 -------------------------------------------------------------------------- */
