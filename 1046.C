@@ -2,8 +2,8 @@
 Disciplina  : Lógica de Programação, turma IB, 2026S1
 Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
-Problema    : https://judge.beecrowd.com/pt/problems/view/1000
-Data        : 30/03/2026
+Problema    : https://judge.beecrowd.com/pt/problems/view/1046
+Data        : 20/05/2026
 Objetivo    : Calcular a duração de um jogo com base na hora inicial e final, considerando que o jogo pode terminar no dia seguinte.
 Aprendizado : Aprendi a utilizar estruturas condicionais, criar funções em C, trabalhar com operações matemáticas e lógica de tempo,
 além de usar scanf e printf para entrada e saída de dados.
