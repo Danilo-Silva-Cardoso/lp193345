@@ -3,7 +3,7 @@ Disciplina  : Lógica de Programação, turma IB, 2026S1
 Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1168
-Data        : 30/03/2026
+Data        : 22/05/2026
 Objetivo    : Aparecer o número de leds necessários para fazer um certo número
 Aprendizado : Aprendi a utilizar switch case e juntar com o while
 -------------------------------------------------------------------------- */
