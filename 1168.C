@@ -21,7 +21,7 @@ int main() {
             
         int quantled = 0;
             
-        char numero[102];
+        char numero[101];
             
         scanf("%s", numero);
             
