@@ -4,8 +4,8 @@ Nome        : Danilo Da Silva Cardoso
 Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1169
 Data        : 09/06/2026
-Objetivo    : Mostrar o Hello Word para o usuário
-Aprendizado : Aprendi a funcionalidade do printf
+Objetivo    : Fazer o tabuleiro de graos
+Aprendizado : Aprendi a usar recursividade
 -------------------------------------------------------------------------- */
 
 #include <stdio.h>
