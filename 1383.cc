@@ -87,7 +87,6 @@ int main()
         } else {
             printf("SIM\n");
         }
-
         printf("\n");
     }
 }
