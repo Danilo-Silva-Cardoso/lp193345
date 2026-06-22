@@ -6,6 +6,7 @@ Problema    : https://judge.beecrowd.com/pt/problems/view/1031
 Data        : 22/06/2026
 Objetivo    : o Problema de Josephus de regioes;
 Aprendizado : aprimoramento da formula de Josephus;
+Duvidas : Um pouco sobre essa formula;
 -------------------------------------------------------------------------- */
 
 #include <stdio.h>
