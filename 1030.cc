@@ -6,6 +6,7 @@ Problema    : https://judge.beecrowd.com/pt/problems/view/1030
 Data        : 22/06/2026
 Objetivo: Descobrir quem é o sobrevivente da mesa
 Aprendizado: Utilizar recursão para achar a posição do sobrevivente
+Duvidas : Um pouco sobre essa formula;
 -------------------------------------------------------------------------- */
 
 #include <stdio.h>
