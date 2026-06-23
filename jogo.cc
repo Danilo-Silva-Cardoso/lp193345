@@ -81,75 +81,150 @@ void imprimir_tabuleiro(int matriz[9][9]) {
 int jogo_concluido(int matriz[9][9]) {
     for(int i = 0; i < 9; i++) {
         for(int j = 0; j < 9; j++) {
-            if(matriz[i][j] == 0) return 0;
+            if(matriz[i][j]#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Sua lógica adaptada: retorna 1 se o tabuleiro tiver conflitos e 0 se estiver OK
+int possui_erro_sudoku(int matriz[9][9]) {
+    // 1. Validação de Linhas
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            int valor = matriz[i][j];
+            if (valor == 0) continue;
+            for (int l = 0; l < 9; l++) {
+                if (valor == matriz[i][l] && l != j) return 1;
+            }
         }
     }
-    return sudoku_valido(matriz);
+
+    // 2. Validação de Colunas
+    for (int j = 0; j < 9; j++) {
+        for (int i = 0; i < 9; i++) {
+            int valor = matriz[i][j];
+            if (valor == 0) continue;
+            for (int l = 0; l < 9; l++) {
+                if (valor == matriz[l][j] && l != i) return 1;
+            }
+        }
+    }
+
+    // 3. Validação dos Blocos 3x3
+    for (int i = 0; i < 9; i += 3) {
+        for (int j = 0; j < 9; j += 3) {
+            int visitados[10] = {0};
+            for (int l = 0; l < 3; l++) {
+                for (int k = 0; k < 3; k++) {
+                    int bloco = matriz[l + i][j + k];
+                    if (bloco == 0) continue;
+                    if (visitados[bloco] == 1) return 1;
+                    visitados[bloco] = 1;
+                }
+            }
+        }
+    }
+    return 0;
+}
+
+// Desenha o tabuleiro no console de forma legível
+void imprimir_tabuleiro(int matriz[9][9]) {
+    printf("\n    1 2 3   4 5 6   7 8 9\n");
+    printf("  +-------+-------+-------+\n");
+    for (int i = 0; i < 9; i++) {
+        printf("%d | ", i + 1);
+        for (int j = 0; j < 9; j++) {
+            if (matriz[i][j] == 0) {
+                printf(". ");
+            } else {
+                printf("%d ", matriz[i][j]);
+            }
+            if ((j + 1) % 3 == 0) printf("| ");
+        }
+        printf("\n");
+        if ((i + 1) % 3 == 0) {
+            printf("  +-------+-------+-------+\n");
+        }
+    }
+}
+
+// Retorna 1 se o tabuleiro estiver completamente preenchido, ou 0 se houver zeros
+int tabuleiro_completo(int matriz[9][9]) {
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (matriz[i][j] == 0) return 0;
+        }
+    }
+    return 1;
 }
 
 int main() {
+    char nome_arquivo[100];
     int matriz[9][9];
-    int fixos[9][9] = {0};
-    const char* entrada_inicial = "534678912672195348198342567859761423426853791713924856961537284287419635345286170";
-    
-    for (int count = 0; count < 81; count++) {
-        int num = entrada_inicial[count] - '0';
-        matriz[count / 9][count % 9] = num;
-        if(num != 0) {
-            fixos[count / 9][count % 9] = 1;
+
+    // Solicita o nome do arquivo ao usuário
+    printf("Digite o nome do arquivo de entrada (ex: input2.txt): ");
+    scanf("%99s", nome_arquivo);
+
+    // Abre o arquivo para leitura usando a biblioteca padrão do C
+    FILE *arquivo = fopen(nome_arquivo, "r");
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo! Certifique-se de que o nome esta correto e o arquivo existe.\n");
+        return 1;
+    }
+
+    // Lê a matriz do arquivo [cite: 1]
+    for (int i = 0; i < 9; i++) {
+        for (int j = 0; j < 9; j++) {
+            if (fscanf(arquivo, "%d", &matriz[i][j]) != 1) {
+                printf("Erro ao ler os dados do arquivo. Formato invalido.\n");
+                fclose(arquivo);
+                return 1;
+            }
         }
     }
-    
-    int linha, coluna, valor;
-    
-    while(1) {
+    fclose(arquivo); // Fecha o arquivo após terminar a leitura
+
+    printf("\n--- JOGO INICIADO ---\n");
+
+    // Loop principal do jogo interativo
+    while (1) {
         imprimir_tabuleiro(matriz);
-        
-        if(!sudoku_valido(matriz)) {
-            printf("\n[ALERTA] Ha conflitos no tabuleiro atual!\n");
+
+        // Alerta o usuário caso alguma jogada tenha quebrado as regras do Sudoku
+        if (possui_erro_sudoku(matriz)) {
+            printf("\n[AVISO] O tabuleiro atual possui conflitos/erros!\n");
         }
-        
-        if(jogo_concluido(matriz)) {
-            printf("\nPARABENS! Voce resolveu o Sudoku!\n");
+
+        // Condição de Vitória: preenchido e sem erros
+        if (tabuleiro_completo(matriz) && !possui_erro_sudoku(matriz)) {
+            printf("\nPARABENS! Voce resolveu o Sudoku com sucesso!\n");
             break;
         }
-        
-        printf("\nInsira a jogada (Linha Coluna Valor) ou '0 0 0' para sair.\n");
-        printf("Exemplo: Para colocar '5' na linha 1 e coluna 2, digite: 1 2 5\n");
-        printf("Sua jogada: ");
-        
+
+        int linha, coluna, valor;
+        printf("\nDigite a jogada (Linha Coluna Valor) ou '0 0 0' para sair: ");
         if (scanf("%d %d %d", &linha, &coluna, &valor) != 3) {
-            printf("Entrada invalida. Tente novamente.\n");
-            while(getchar() != '\n'); 
+            printf("Entrada invalida. Digite tres numeros.\n");
+            // Limpa o buffer caso o usuário digite texto por engano
+            while (getchar() != '\n');
             continue;
         }
-        
-        if(linha == 0 && coluna == 0 && valor == 0) {
-            printf("Saindo do jogo... Ate a proxima!\n");
+
+        // Condição para encerrar o programa
+        if (linha == 0 && coluna == 0 && valor == 0) {
+            printf("Jogo encerrado pelo usuario.\n");
             break;
         }
-        
-        // Corrigido 'gateway' para 'coluna'
-        if(linha < 1 || linha > 9 || coluna < 1 || coluna > 9 || valor < 0 || valor > 9) {
-            printf("\n[ERRO] Valores fora do limite! Linhas/Colunas: 1-9. Valores: 0-9 (0 para apagar).\n");
-            while(getchar() != '\n'); // Limpa buffer para evitar loop infinito com letras
+
+        // Validação dos limites das coordenadas informadas
+        if (linha < 1 || linha > 9 || coluna < 1 || coluna > 9 || valor < 1 || valor > 9) {
+            printf("Jogada invalida! Os valores de linha, coluna e valor devem ser de 1 a 9.\n");
             continue;
         }
-        
-        if(fixos[linha - 1][coluna - 1]) {
-            printf("\n[ERRO] Voce nao pode alterar os numeros originais do tabuleiro!\n");
-            continue;
-        }
-        
-        int valor_antigo = matriz[linha - 1][coluna - 1];
+
+        // Insere o valor na matriz (ajustando de 1..9 para o índice 0..8 da linguagem C)
         matriz[linha - 1][coluna - 1] = valor;
-        
-        if (valor != 0 && !sudoku_valido(matriz)) {
-            printf("\n[ERRO] Esta jogada cria um conflito na linha, coluna ou bloco!\n");
-            matriz[linha - 1][coluna - 1] = valor_antigo;
-            continue;
-        }
     }
-    
+
     return 0;
 }
